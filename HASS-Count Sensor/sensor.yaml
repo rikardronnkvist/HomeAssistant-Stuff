@@ -1,0 +1,30 @@
+sensor:
+- platform: template
+  sensors:
+    hass_count:
+      friendly_name: HASS Count
+      icon_template: mdi:home-assistant
+      value_template: "{{ states | count }}"
+      attribute_templates:
+        automation: "{{ states.automation | count }}"
+        binary_sensor: "{{ states.binary_sensor | count }}"
+        birthdays: "{{ states.birthdays | count }}"
+        calendar: "{{ states.calendar | count }}"
+        camera: "{{ states.camera | count }}"
+        climate: "{{ states.climate | count }}"
+        device_tracker: "{{ states.device_tracker | count }}"
+        group: "{{ states.group | count }}"
+        input_boolean: "{{ states.input_boolean | count }}"
+        input_select: "{{ states.input_select | count }}"
+        input_text: "{{ states.input_text | count }}"
+        light: "{{ states.light | count }}"
+        media_player: "{{ states.media_player | count }}"
+        person: "{{ states.person | count }}"
+        scene: "{{ states.scene | count }}"
+        script: "{{ states.script | count }}"
+        sensor: "{{ states.sensor | count }}"
+        sun: "{{ states.sun | count }}"
+        switch: "{{ states.switch | count }}"
+        weather: "{{ states.weather | count }}"
+        zone: "{{ states.zone | count }}"
+        zwave: "{{ states.zwave | count }}"
