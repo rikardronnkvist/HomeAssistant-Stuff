@@ -1,10 +1,8 @@
-
-- card:
-  type: picture-elements
-  image: /local/cards/untappd-1000x500.jpg
-  style:
-    width: 1000px
-  elements:
+type: picture-elements
+image: /local/cards/untappd-1000x500.jpg
+style:
+  width: 1000px
+elements:
 # Last Checkin
   - type: state-icon
     entity: sensor.untappd_last_check_in_rirofal
