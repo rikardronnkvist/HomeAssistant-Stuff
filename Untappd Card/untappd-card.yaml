@@ -1,0 +1,202 @@
+
+- card:
+  type: picture-elements
+  image: /local/cards/untappd-1000x500.jpg
+  style:
+    width: 1000px
+  elements:
+# Last Checkin
+  - type: state-icon
+    entity: sensor.untappd_last_check_in_rirofal
+    style:
+      top: 15%
+      left: 5%
+      transform: scale(1.5)
+      z-index: 1
+
+  - type: state-label
+    entity: sensor.untappd_last_check_in_rirofal
+    style:
+      top: 8%
+      left: 18%
+      width: 45%
+      height: 28%
+      transform: none
+      color: rgb(0, 0, 0, 0)
+      border-left-style: solid
+      border-color: "#FFC000"
+      background-color: rgb(0, 0, 0, 0.6)
+      z-index: 1
+      border-bottom-right-radius: 15px
+
+  - type: state-label
+    entity: sensor.untappd_last_check_in_rirofal
+    attribute: beer
+    style:
+      top: 7%
+      left: 18%
+      transform: none
+      color: White
+      font-weight: bold
+      z-index: 2
+
+  - type: state-label
+    entity: sensor.untappd_last_check_in_rirofal
+    attribute: brewery
+    style:
+      top: 16%
+      left: 18%
+      transform: none
+      color: White
+      z-index: 2
+
+  - type: state-label
+    entity: sensor.untappd_last_check_in_rirofal
+    style:
+        top: 24%
+        left: 18%
+        transform: none
+        color: Gray
+        font-size: 75%
+        z-index: 2
+
+  - type: image
+    image: /local/cards/untappd-stars.png
+    style:
+        top: 9%
+        left: 63%
+        width: 12%
+        z-index: 3
+  - type: state-label
+    entity: sensor.untappd_last_check_in_rirofal
+    attribute: score
+    style:
+        top: 9%
+        left: 63%
+        color: white
+        z-index: 4
+        width: 12%
+        height: 12%
+        text-align: center
+
+
+# Last Badge
+  - type: state-icon
+    entity: sensor.untappd_last_badge_rirofal
+    style:
+      top: 47%
+      left: 5%
+      transform: scale(1.5)
+      z-index: 1
+
+  - type: state-label
+    entity: sensor.untappd_last_badge_rirofal
+    style:
+      top: 45%
+      left: 18%
+      width: 45%
+      height: 20%
+      transform: none
+      color: rgb(0, 0, 0, 0)
+      border-left-style: solid
+      border-color: "#FFC000"
+      background-color: rgb(0, 0, 0, 0.6)
+      z-index: 1
+      border-bottom-right-radius: 15px
+
+  - type: state-label
+    entity: sensor.untappd_last_badge_rirofal
+    attribute: badge
+    style:
+      top: 45%
+      left: 18%
+      transform: none
+      color: White
+      z-index: 2
+
+  - type: state-label
+    entity: sensor.untappd_last_badge_rirofal
+    style:
+        top: 53%
+        left: 18%
+        transform: none
+        color: Gray
+        font-size: 75%
+        z-index: 2
+
+  - type: image
+    image: /local/cards/untappd-level.png
+    style:
+        top: 47%
+        left: 5%
+        width: 5%
+        z-index: 3
+  - type: state-label
+    entity: sensor.untappd_last_badge_rirofal
+    attribute: level
+    style:
+        top: 47%
+        left: 5%
+        color: black
+        z-index: 4
+        width: 5%
+        text-align: center
+        font-size: 75%
+
+# Footer icons
+  - type: image
+    image: /local/cards/untappd-checkin.png
+    tap_action:
+      action: none
+    style:
+        bottom: 2%
+        left: 10%
+        width: 7%
+        z-index: 2
+  - type: state-label
+    entity: sensor.untappd_last_check_in_rirofal
+    attribute: checkins
+    style:
+        bottom: 0%
+        left: 18%
+        color: white
+        font-weight: bold
+        text-shadow: 2px 2px 2px black
+
+  - type: image
+    image: /local/cards/untappd-beer-pitcher.png
+    tap_action:
+      action: none
+    style:
+        bottom: 2%
+        left: 33%
+        width: 7%
+        z-index: 2
+  - type: state-label
+    entity: sensor.untappd_last_check_in_rirofal
+    attribute: total_beers
+    style:
+        bottom: 0%
+        left: 41%
+        color: white
+        font-weight: bold
+        text-shadow: 2px 2px 2px black
+
+  - type: image
+    image: /local/cards/untappd-badge.png
+    tap_action:
+      action: none
+    style:
+        bottom: 2%
+        left: 56%
+        width: 7%
+        z-index: 2
+  - type: state-label
+    entity: sensor.untappd_last_check_in_rirofal
+    attribute: total_badges
+    style:
+        bottom: 0%
+        left: 64%
+        color: white
+        font-weight: bold
+        text-shadow: 2px 2px 2px black
