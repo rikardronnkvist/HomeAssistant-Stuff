@@ -148,7 +148,7 @@ elements:
       action: none
     style:
         bottom: 2%
-        left: 10%
+        left: 6%
         width: 7%
         z-index: 2
   - type: state-label
@@ -156,7 +156,7 @@ elements:
     attribute: checkins
     style:
         bottom: 0%
-        left: 18%
+        left: 14%
         color: white
         font-weight: bold
         text-shadow: 2px 2px 2px black
@@ -167,7 +167,7 @@ elements:
       action: none
     style:
         bottom: 2%
-        left: 33%
+        left: 25%
         width: 7%
         z-index: 2
   - type: state-label
@@ -175,7 +175,7 @@ elements:
     attribute: total_beers
     style:
         bottom: 0%
-        left: 41%
+        left: 33%
         color: white
         font-weight: bold
         text-shadow: 2px 2px 2px black
@@ -186,7 +186,7 @@ elements:
       action: none
     style:
         bottom: 2%
-        left: 56%
+        left: 43%
         width: 7%
         z-index: 2
   - type: state-label
@@ -194,7 +194,26 @@ elements:
     attribute: total_badges
     style:
         bottom: 0%
-        left: 64%
+        left: 51%
+        color: white
+        font-weight: bold
+        text-shadow: 2px 2px 2px black
+
+  - type: image
+    image: /local/cards/untappd-camera.png
+    tap_action:
+      action: none
+    style:
+        bottom: 2%
+        left: 61%
+        width: 7%
+        z-index: 2
+  - type: state-label
+    entity: sensor.untappd_last_check_in_rirofal
+    attribute: photos
+    style:
+        bottom: 0%
+        left: 69%
         color: white
         font-weight: bold
         text-shadow: 2px 2px 2px black
