@@ -1,0 +1,70 @@
+sensor:
+  - platform: template
+    sensors:
+      mercedesme_tank:
+        friendly_name: MercedesMe Tank
+        icon_template: mdi:gas-station
+        value_template: '{{ states("sensor.xyz12312312312345_tanklevelpercent") }}'
+        unit_of_measurement: '%'
+        attribute_templates:
+          range: '{{ states("sensor.xyz12312312312345_rangeliquid") }}'
+          heading: '{{ states("sensor.xyz12312312312345_positionheading") }}'
+
+      mercedesme_locks:
+        friendly_name: MercedesMe Locks
+        icon_template: mdi:lock
+        value_template:  '{% if (states("sensor.xyz12312312312345_doorlockstatusvehicle") | int) == 0 %}Unlocked{% else %}Locked{% endif %}'
+        attribute_templates:
+          decklid: '{% if states("sensor.xyz12312312312345_doorlockstatusdecklid") == "true" %}Unlocked{% else %}Locked{% endif %}'
+          gas: '{% if states("sensor.xyz12312312312345_doorlockstatusgas") == "true" %}Unlocked{% else %}Locked{% endif %}'
+
+      mercedesme_doors:
+        friendly_name: MercedesMe Doors
+        icon_template: mdi:car-door-lock
+        value_template: >-
+          {% 
+            if states("sensor.xyz12312312312345_doorstatusfrontleft") == "true" or
+               states("sensor.xyz12312312312345_doorstatusfrontleft") == "true" or
+               states("sensor.xyz12312312312345_doorstatusrearleft")  == "true" or
+               states("sensor.xyz12312312312345_doorstatusrearleft")  == "true"
+          %}
+            Open
+          {% else %}
+            Closed
+          {% endif %}
+        attribute_templates:
+          front_left: '{% if states("sensor.xyz12312312312345_doorstatusfrontleft") == "true" %}Open{% else %}Closed{% endif %}'
+          front_right: '{% if states("sensor.xyz12312312312345_doorstatusfrontleft") == "true" %}Open{% else %}Closed{% endif %}'
+          rear_left: '{% if states("sensor.xyz12312312312345_doorstatusrearleft") == "true" %}Open{% else %}Closed{% endif %}'
+          rear_right: '{% if states("sensor.xyz12312312312345_doorstatusrearleft") == "true" %}Open{% else %}Closed{% endif %}'
+
+      mercedesme_windows:
+        friendly_name: MercedesMe Windows
+        icon_template: mdi:car-door
+        value_template: >-
+          {% 
+            if (states("sensor.xyz12312312312345_windowstatusfrontleft")  | int) == 1 or
+               (states("sensor.xyz12312312312345_windowstatusfrontright") | int) == 1 or
+               (states("sensor.xyz12312312312345_windowstatusrearleft")   | int) == 1 or
+               (states("sensor.xyz12312312312345_windowstatusrearright")  | int) == 1
+            %}
+            Open
+          {% else %}
+            Closed
+          {% endif %}
+        attribute_templates:
+          front_left: '{% if (states("sensor.xyz12312312312345_windowstatusfrontleft") | int) == 1 %}Open{% else %}Closed{% endif %}'
+          front_right: '{% if (states("sensor.xyz12312312312345_windowstatusfrontright") | int) == 1 %}Open{% else %}Closed{% endif %}'
+          rear_left: '{% if (states("sensor.xyz12312312312345_windowstatusrearleft") | int) == 1 %}Open{% else %}Closed{% endif %}'
+          rear_right: '{% if (states("sensor.xyz12312312312345_windowstatusrearright") | int) == 1 %}Open{% else %}Closed{% endif %}'
+
+
+      mercedesme_lights:
+        friendly_name: MercedesMe Lights
+        icon_template: mdi:car-light-high
+        value_template: '{{ states("sensor.xyz12312312312345_lightswitchposition") }}'
+        attribute_templates:
+          interiorlights_front: '{% if states("sensor.xyz12312312312345_interiorlightsfront") == "true" %}On{% else %}Off{% endif %}'
+          interiorlights_rear: '{% if states("sensor.xyz12312312312345_interiorlightsrear") == "true" %}On{% else %}Off{% endif %}'
+          readinglamp_front_right: '{% if states("sensor.xyz12312312312345_readinglampfrontright") == "true" %}On{% else %}Off{% endif %}'
+          readinglamp_front_left: '{% if states("sensor.xyz12312312312345_readinglampfrontleft") == "true" %}On{% else %}Off{% endif %}'
