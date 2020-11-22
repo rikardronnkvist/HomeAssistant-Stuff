@@ -1,0 +1,88 @@
+type: picture-elements
+image: /local/cards/mercedes-800x400.jpg
+style:
+  width: 800px
+  z-index: 1
+elements:
+- type: image
+  entity: sensor.mercedesme_locks
+  image: /local/cards/mercedes-unlocked.png
+  state_image:
+    'Locked': /local/cards/mercedes-locked.png
+  state_filter:
+    "Locked": opacity(0.5)
+  style:
+    top: 20%
+    left: 70%
+    width: 15%
+    z-index: 10
+
+- type: conditional
+  conditions:
+    - entity: sensor.mercedesme_doors
+      state_not: 'Closed'
+  elements:
+  - type: image
+    image: /local/cards/mercedes-doors.png
+    style:
+      top: 50%
+      left: 50%
+      z-index: 10
+      width: 100%
+
+- type: conditional
+  conditions:
+    - entity: sensor.mercedesme_windows
+      state_not: 'xxClosed'
+  elements:
+  - type: image
+    image: /local/cards/mercedes-windows.png
+    style:
+      top: 50%
+      left: 50%
+      z-index: 10
+      width: 100%
+
+- type: image
+  image: /local/cards/mercedes-tank.png
+  tap_action:
+    action: none
+  style:
+      bottom: 5%
+      left: 10%
+      width: 7%
+      z-index: 2
+- type: state-label
+  entity: sensor.mercedesme_tank
+  attribute: range
+  suffix: " km"
+  style:
+    bottom: 8%
+    left: 15%
+    transform: none
+    color: White
+    z-index: 6
+    font-weight: bold
+    text-shadow: 2px 2px 2px black
+
+- type: image
+  image: /local/cards/mercedes-direction.png
+  tap_action:
+    action: none
+  style:
+      bottom: 5%
+      left: 37%
+      width: 7%
+      z-index: 2
+- type: state-label
+  entity: sensor.mercedesme_tank
+  attribute: heading
+  suffix: "°"
+  style:
+    bottom: 8%
+    left: 40%
+    transform: none
+    color: White
+    z-index: 6
+    font-weight: bold
+    text-shadow: 2px 2px 2px black
