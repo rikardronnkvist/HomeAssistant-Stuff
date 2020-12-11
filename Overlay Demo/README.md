@@ -9,12 +9,15 @@ Tested HA-version found in [.HA_VERSION](./.HA_VERSION)
 # Demo in Docker
 The [example_docker-compose.yaml](./example_docker-compose.yaml) file can be used to create a container that only expose port 9123 with the web interface.
 
-Copy the config-files in this repo tosome path and modify the volume-mapping in the compose-file.
+Copy the config-files in this repo to some path and modify the volume-mapping in the compose-file, renamed to docker-compose.yaml
 
 Then start the container with
 ```bash
 docker-compose up -d
 ```
+
+Now you should be able to access the demo from http://ip.of.docker.host:9123/
+
 
 # Sweet Home 3D
 You need create your floorplan in [Sweet Home 3D](http://www.sweethome3d.com/), you can probably find tons of guides on how to do that so in this example I will assume that you allready have a nice SH3D-plan to work with.
