@@ -1,0 +1,73 @@
+homeassistant:
+  name: Overlay Demo
+  latitude: 60.60
+  longitude: 15.62
+  elevation: 123
+  unit_system: metric
+  time_zone: Europe/Stockholm
+
+config:
+map:
+mobile_app:
+
+lovelace:
+  mode: yaml
+
+  dashboards:
+    demo-dashboard:
+      mode: yaml
+      title: Demo
+      icon: mdi:tablet-dashboard
+      show_in_sidebar: true
+      require_admin: false
+      filename: ui-demo.yaml
+
+# ---------------------------------------------------------------------------------------
+input_boolean:
+  overlay_library:
+    name: Overlay - Library
+    icon: mdi:view-dashboard
+
+  overlay_hallway:
+    name: Overlay - Hallway
+    icon: mdi:view-dashboard
+    initial: true
+
+  overlay_kitchen_ceiling:
+    name: Overlay - Kitchen - Ceiling
+    icon: mdi:view-dashboard
+  overlay_kitchen_table:
+    name: Overlay - Kitchen - Table
+    icon: mdi:view-dashboard
+
+  overlay_livingroom_tv:
+    name: Overlay - Livingroom - TV
+    icon: mdi:view-dashboard
+    initial: true
+  overlay_livingroom_sofa:
+    name: Overlay - Livingroom - Sofa
+    icon: mdi:view-dashboard
+    initial: true
+  overlay_livingroom_corner:
+    name: Overlay - Livingroom - Corner
+    icon: mdi:view-dashboard
+
+input_number:
+  demo_temperature:
+    name: Temperature
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+    initial: 22.3
+    min: -35
+    max: 35
+    step: 0.1
+
+  demo_humidity:
+    name: Humidity
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+    initial: 72
+    min: 0
+    max: 100
+    step: 1
+# ---------------------------------------------------------------------------------------

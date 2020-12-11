@@ -1,0 +1,191 @@
+anchors:
+  <<: &backgroundImagesPlacement
+    left: 30%
+    top: 16%
+    width: 150%
+
+  <<: &defaultOverlay
+    type: image
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    style:
+      <<: *backgroundImagesPlacement
+      z-index: 5
+      mix-blend-mode: lighten
+
+  <<: &defaultLightButton
+    tap_action:
+      action: toggle
+    hold_action:
+      action: none
+    state_image:
+      "on": /local/icon-light-on.png
+      "off": /local/icon-light-off.png
+    state_filter:
+      "on": opacity(1)
+      "off": opacity(0.7)
+
+  <<: &iconsCommonStyle
+    max-width: 5.5%
+    transform: 'scale(0.75,0.75)'
+    z-index: 10
+
+title: Demo Floorplan
+views:
+  - path: demo
+    title: Demo Floorplan
+    panel: true
+    cards:
+# ---------------------------------------------------------------------------------------
+      - type: picture-elements
+        image: /local/transparent_1x1.png
+        elements:
+        - image: /local/background.jpg
+          type: image
+          tap_action:
+            action: none
+          hold_action:
+            action: none
+          style:
+            <<: *backgroundImagesPlacement
+            z-index: 2
+# ---------------------------------------------------------------------------------------
+
+        - type: conditional
+          conditions:
+            - entity: input_boolean.overlay_library
+              state: 'on'
+          elements:
+          - image: /local/overlay-library.png
+            <<: *defaultOverlay
+
+        - type: image
+          entity: input_boolean.overlay_library
+          <<: *defaultLightButton
+          style:
+            <<: *iconsCommonStyle
+            left: 6%
+            top: 12%
+
+# ---------------------------------------------------------------------------------------
+        - type: conditional
+          conditions:
+            - entity: input_boolean.overlay_hallway
+              state: 'on'
+          elements:
+          - image: /local/overlay-hallway.png
+            <<: *defaultOverlay
+
+        - type: image
+          entity: input_boolean.overlay_hallway
+          <<: *defaultLightButton
+          style:
+            <<: *iconsCommonStyle
+            left: 88%
+            top: 18%
+# ---------------------------------------------------------------------------------------
+
+        - type: conditional
+          conditions:
+            - entity: input_boolean.overlay_kitchen_ceiling
+              state: 'on'
+          elements:
+          - image: /local/overlay-kitchen-ceiling.png
+            <<: *defaultOverlay
+
+        - type: conditional
+          conditions:
+            - entity: input_boolean.overlay_kitchen_table
+              state: 'on'
+          elements:
+          - image: /local/overlay-kitchen-table.png
+            <<: *defaultOverlay
+
+        - type: image
+          entity: input_boolean.overlay_kitchen_ceiling
+          <<: *defaultLightButton
+          style:
+            <<: *iconsCommonStyle
+            left: 58%
+            top: 40%
+
+        - type: image
+          entity: input_boolean.overlay_kitchen_table
+          <<: *defaultLightButton
+          style:
+            <<: *iconsCommonStyle
+            left: 47%
+            top: 63%
+# ---------------------------------------------------------------------------------------
+
+        - type: conditional
+          conditions:
+            - entity: input_boolean.overlay_livingroom_tv
+              state: 'on'
+          elements:
+          - image: /local/overlay-livingroom-tv.png
+            <<: *defaultOverlay
+
+        - type: conditional
+          conditions:
+            - entity: input_boolean.overlay_livingroom_sofa
+              state: 'on'
+          elements:
+          - image: /local/overlay-livingroom-sofa.png
+            <<: *defaultOverlay
+
+        - type: conditional
+          conditions:
+            - entity: input_boolean.overlay_livingroom_corner
+              state: 'on'
+          elements:
+          - image: /local/overlay-livingroom-corner.png
+            <<: *defaultOverlay
+
+
+        - type: image
+          entity: input_boolean.overlay_livingroom_tv
+          <<: *defaultLightButton
+          style:
+            <<: *iconsCommonStyle
+            left: 13%
+            top: 20%
+
+        - type: image
+          entity: input_boolean.overlay_livingroom_sofa
+          <<: *defaultLightButton
+          style:
+            <<: *iconsCommonStyle
+            left: 1%
+            top: 43%
+
+        - type: image
+          entity: input_boolean.overlay_livingroom_corner
+          <<: *defaultLightButton
+          style:
+            <<: *iconsCommonStyle
+            left: 1%
+            top: 58%
+
+# ---------------------------------------------------------------------------------------
+# Labels
+        - type: state-label
+          entity: input_number.demo_temperature
+          style:
+            color: white
+            font-size: 125%
+            left: 40%
+            top: 40%
+            z-index: 10
+
+        - type: state-label
+          entity: input_number.demo_humidity
+          style:
+            color: white
+            font-size: 75%
+            left: 40%
+            top: 42%
+            z-index: 10
+# ---------------------------------------------------------------------------------------
