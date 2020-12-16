@@ -1,0 +1,23 @@
+!.gitignore
+!*.md
+# ------------------
+.storage
+.cloud
+.vscode
+.uuid
+deps/
+tts/
+**/__pycache__/
+@eaDir/
+*@SynoEAStream
+*.code-workspace
+*.log
+*.xml
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+Thumbs.db
