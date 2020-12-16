@@ -71,3 +71,174 @@ input_number:
     max: 100
     step: 1
 # ---------------------------------------------------------------------------------------
+script:
+  demo_sequence:
+    alias: Demo Sequence
+    sequence:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.overlay_kitchen_table
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 22.7
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 73
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.overlay_kitchen_ceiling
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 23.1
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 75
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.overlay_library
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 23.8
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 78
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.overlay_hallway
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 24.4
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 77
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.overlay_kitchen_table
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 25.2
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 76
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.overlay_kitchen_ceiling
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 23.4
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 75
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.overlay_livingroom_sofa
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 22.9
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 72
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.overlay_library
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 22.7
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 70
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.overlay_livingroom_corner
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 23.1
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 69
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.overlay_hallway
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 22.8
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 68
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.overlay_livingroom_tv
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 22.7
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 71
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.overlay_livingroom_sofa
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 22.5
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 72
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.overlay_livingroom_corner
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 22.4
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 73
+    - delay: 00:00:01
+
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.overlay_livingroom_tv
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_temperature
+        value: 22.3
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.demo_humidity
+        value: 72
+# ---------------------------------------------------------------------------------------

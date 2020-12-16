@@ -175,7 +175,7 @@ views:
           entity: input_number.demo_temperature
           style:
             color: white
-            font-size: 125%
+            font-size: 200%
             left: 40%
             top: 40%
             z-index: 10
@@ -184,8 +184,21 @@ views:
           entity: input_number.demo_humidity
           style:
             color: white
-            font-size: 75%
+            font-size: 150%
             left: 40%
-            top: 42%
+            top: 43%
             z-index: 10
+# ---------------------------------------------------------------------------------------
+# Demo Sequence Icon
+        - type: image
+          entity: script.demo_sequence
+          tap_action:
+            action: toggle
+          style:
+            <<: *iconsCommonStyle
+            left: 60%
+            top: 5%
+          state_image:
+            "on": /local/icon-demo-on.png
+            "off": /local/icon-demo-off.png
 # ---------------------------------------------------------------------------------------
