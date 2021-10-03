@@ -1,0 +1,31 @@
+anchors:
+title: Overview
+views:
+  - path: overview
+    title: Overview
+    cards:
+# ---------------------------------------------------------------------------------------
+      - type: button
+        entity: input_boolean.homekit_notification_camera_trigger
+        name: Test Notification
+        icon: mdi:bell
+        tap_action:
+          action: call-service
+          service: automation.trigger
+          service_data:
+            entity_id: automation.homekit_notification_demo
+
+      - type: picture-entity
+        entity: camera.homekit_notification_camera
+        show_name: false
+        show_state: false
+
+      - type: entities
+        title: Status
+        entities:
+          - entity: script.homekit_notification_camera_trigger
+          - entity: binary_sensor.homekit_notification_camera_doorbell
+          - entity: input_boolean.homekit_notification_camera_trigger
+          - entity: automation.homekit_camera_black
+          - entity: automation.homekit_notification_demo
+        show_header_toggle: false

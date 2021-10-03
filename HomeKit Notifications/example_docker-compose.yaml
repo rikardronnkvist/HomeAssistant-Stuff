@@ -1,0 +1,12 @@
+version: "3"
+services:
+  homeassistant-test:
+    container_name: homeassistant-test
+    image: homeassistant/home-assistant:stable
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Stockholm
+    volumes:
+      - /some/path/homeassistant-test:/config
+    ports:
+      - 9123:8123/tcp

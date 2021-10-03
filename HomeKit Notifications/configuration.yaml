@@ -1,0 +1,115 @@
+homeassistant:
+  name: HomeKit Notification Demo
+  latitude: 60.60
+  longitude: 15.62
+  elevation: 123
+  unit_system: metric
+  time_zone: Europe/Stockholm
+
+config:
+map:
+mobile_app:
+
+lovelace:
+  mode: yaml
+
+  dashboards:
+    homekit-dashboard:
+      mode: yaml
+      title: HomeKit
+      icon: mdi:tablet-dashboard
+      show_in_sidebar: true
+      require_admin: false
+      filename: ui-homekit.yaml
+
+# ---------------------------------------------------------------------------------------
+camera:
+  # On first start the config will complain, but this will be sorted out by an automation
+  - platform: local_file
+    file_path: /config/www/homekit-camera.jpg
+    name: "Homekit Notification Camera"
+
+input_boolean:
+  # The HomeKit-compatible DoorBell-trigger
+  homekit_notification_camera_trigger:
+    name: Homekit Notification Camera Trigger
+    initial: false
+
+binary_sensor:
+  # The HomeKit DoorBell needs to be a binary sensor
+  - platform: template
+    sensors:
+      homekit_notification_camera_doorbell:
+        friendly_name: Homekit Notification Camera DoorBell
+        device_class: motion
+        value_template: >-
+          {{ states('input_boolean.homekit_notification_camera_trigger') }}
+
+shell_command:
+  # Simple script to link files to the one the camera is pointing at
+  homekit_notification_camera_link_file: 'ln -f -T /config/www/{{ jpgimage }} /config/www/homekit-camera.jpg'
+
+script:
+  homekit_notification_camera_trigger:
+    alias: Homekit Camera Trigger
+    fields:
+      filename:
+        description: JPEG-file to show in camera
+        example: "someimage.jpg"
+
+    sequence:
+      # Change the camera image
+      - service: shell_command.homekit_notification_camera_link_file
+        data_template:
+          jpgimage: '{{ filename }}'
+
+      # Trigger the "doorbell" (this will trigger the notification in HomeKit)
+      - service: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.homekit_notification_camera_trigger
+
+      # Delay 30sec before reset
+      - delay: "00:00:30"
+
+      # Reset the "doorbell"
+      - service: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.homekit_notification_camera_trigger
+
+      # Reset camera image
+      - service: shell_command.homekit_notification_camera_link_file
+        data_template:
+          jpgimage: 'black.jpg'
+
+automation:
+# This automation sets a black image when starting up
+- id: homekit_notification_camera_black
+  alias: Homekit Camera Black
+  trigger:
+      platform: homeassistant
+      event: start
+  action:
+    - service: shell_command.homekit_notification_camera_link_file
+      data_template:
+        jpgimage: 'black.jpg'
+
+# Simple demo Automation
+- id: homekit_notification_demo
+  alias: Homekit Notification Demo
+  trigger:
+  action:
+    - service: script.homekit_notification_camera_trigger
+      data:
+        filename: dishwasher.jpg
+
+homekit:
+  - name: "Home Assistant Bridge"
+    filter:
+      include_entities:
+        - camera.homekit_notification_camera
+    entity_config:
+      # Link the "DoorBell" to the camera
+      camera.homekit_notification_camera:
+        linked_doorbell_sensor: binary_sensor.homekit_notification_camera_doorbell
+
+# ---------------------------------------------------------------------------------------
