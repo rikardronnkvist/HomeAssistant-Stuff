@@ -5,7 +5,7 @@ Examples and other public stuff
 ![Overlay Demo](./Overlay%20Demo/README-images/demo.gif?raw=true)
 
 ## HomeKit Notifications
-!HomeKit Notifications](./HomeKit%20Notifications/README-images/demo.gif?raw=true)
+![HomeKit Notifications](./HomeKit%20Notifications/README-images/demo.gif?raw=true)
 
 ## MercedesMe Card
 ![MercedesMe Card](./MercedesMe%20Card/example1.png?raw=true)
