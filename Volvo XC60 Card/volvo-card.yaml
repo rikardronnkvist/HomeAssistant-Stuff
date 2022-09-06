@@ -1,0 +1,215 @@
+type: picture-elements
+image: /local/volvo/background.png
+style:
+  width: 2400px
+  z-index: 1
+elements:
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.abc123_doors
+        state_not: 'off'
+    elements:
+      - type: image
+        image: /local/volvo/volvo-doors.png
+        style:
+          top: 50%
+          left: 50%
+          z-index: 5
+          width: 100%
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.abc123_windows
+        state_not: 'off'
+    elements:
+      - type: image
+        image: /local/volvo/volvo-windows.png
+        style:
+          top: 50%
+          left: 50%
+          z-index: 5
+          width: 100%
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.abc123_plug_status
+        state_not: 'Off'
+    elements:
+      - type: image
+        image: /local/volvo/volvo-chargeport.png
+        style:
+          top: 50%
+          left: 50%
+          z-index: 5
+          width: 100%
+
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.abc123_door_lock
+        state: 'off'
+    elements:
+      - type: image
+        image: /local/volvo/icon-locked.png
+        style:
+          top: 45%
+          left: 85%
+          width: 8%
+          opacity: 0.75
+          z-index: 10
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.abc123_door_lock
+        state_not: 'off'
+    elements:
+      - type: image
+        image: /local/volvo/icon-unlocked.png
+        style:
+          top: 45%
+          left: 85%
+          width: 8%
+          opacity: 1
+          z-index: 10
+
+
+  - type: image
+    image: /local/volvo/icon-tank.png
+    tap_action:
+      action: none
+    style:
+      top: 15%
+      left: 5%
+      width: 10%
+      z-index: 2
+  - type: state-label
+    entity: sensor.abc123_range
+    style:
+      top: 0%
+      left: 10%
+      transform: none
+      color: Black
+      z-index: 6
+      font-weight: bold
+      text-shadow: 0px 0px 5px white
+  - type: state-label
+    entity: sensor.abc123_fuel_level
+    style:
+      top: 7%
+      left: 10%
+      transform: none
+      color: Black
+      z-index: 6
+      font-weight: bold
+      text-shadow: 0px 0px 5px white
+  - type: state-label
+    entity: sensor.abc123_fuel_amount
+    style:
+      top: 14%
+      left: 10%
+      transform: none
+      color: Black
+      z-index: 6
+      font-weight: bold
+      text-shadow: 0px 0px 5px white
+
+
+  - type: image
+    entity: sensor.abc123_battery_level
+    image: /local/volvo/icon-battery-half.png
+    state_image:
+      '100': /local/volvo/icon-battery-full.png
+    style:
+      top: 40%
+      left: 5%
+      width: 10%
+      z-index: 2
+  - type: state-label
+    entity: sensor.abc123_battery_range
+    style:
+      top: 29%
+      left: 10%
+      transform: none
+      color: Black
+      z-index: 6
+      font-weight: bold
+      text-shadow: 0px 0px 5px white
+  - type: state-label
+    entity: sensor.abc123_battery_level
+    style:
+      top: 36%
+      left: 10%
+      transform: none
+      color: Black
+      z-index: 6
+      font-weight: bold
+      text-shadow: 0px 0px 5px white
+
+  - type: image
+    image: /local/volvo/icon-meter.png
+    tap_action:
+      action: none
+    style:
+      top: 64%
+      left: 5%
+      width: 10%
+      z-index: 2
+  - type: state-label
+    entity: sensor.abc123_odometer
+    style:
+      top: 49%
+      left: 10%
+      transform: none
+      color: Black
+      z-index: 6
+      font-weight: bold
+      text-shadow: 0px 0px 5px white
+  - type: state-label
+    entity: sensor.abc123_trip_meter_1
+    style:
+      top: 56%
+      left: 10%
+      transform: none
+      color: Black
+      z-index: 6
+      font-weight: bold
+      text-shadow: 0px 0px 5px white
+  - type: state-label
+    entity: sensor.abc123_trip_meter_2
+    style:
+      top: 63%
+      left: 10%
+      transform: none
+      color: Black
+      z-index: 6
+      font-weight: bold
+      text-shadow: 0px 0px 5px white
+
+  - type: image
+    image: /local/volvo/icon-location.png
+    tap_action:
+      action: none
+    style:
+      top: 88%
+      left: 5%
+      width: 10%
+      z-index: 2
+  - type: state-label
+    entity: device_tracker.volvo_abc123
+    style:
+      top: 77%
+      left: 10%
+      transform: none
+      color: Black
+      z-index: 6
+      font-weight: bold
+      text-shadow: 0px 0px 5px white
+  - type: state-label
+    entity: sensor.abc123_last_trip
+    attribute: end_address
+    style:
+      top: 84%
+      left: 10%
+      transform: none
+      color: Black
+      z-index: 6
+      font-weight: bold
+      text-shadow: 0px 0px 5px white
+
+
