@@ -10,6 +10,9 @@ Examples and other public stuff
 ## MercedesMe Card
 ![MercedesMe Card](./MercedesMe%20Card/example1.png?raw=true)
 
+## Volvo XC60 Card
+![Volvo XC60 Card](./MercedesMe%20Card/example.png?raw=true)
+
 ## Untappd Card
 ![Untappd Card](./Untappd%20Card/example.png?raw=true)
 
