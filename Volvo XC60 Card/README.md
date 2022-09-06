@@ -1,11 +1,7 @@
 # Volvo XC60 Card
 Volvo On Call status card
 
-![Example](./example1.png?raw=true)
-
-![Example](./example2.png?raw=true)
-
-![Example](./example3.png?raw=true)
+![Example](./example.png?raw=true)
 
 ## Installation
 - Download JPG & PNGs to /config/www/volvo
