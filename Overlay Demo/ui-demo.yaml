@@ -31,6 +31,7 @@ anchors:
     max-width: 5.5%
     transform: 'scale(0.75,0.75)'
     z-index: 10
+    width: 100%
 
 title: Demo Floorplan
 views:
