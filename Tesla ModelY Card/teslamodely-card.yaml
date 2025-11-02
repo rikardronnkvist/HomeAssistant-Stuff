@@ -1,0 +1,189 @@
+type: picture-elements
+image: /local/tesla-1000x500.png
+elements:
+  - type: custom:config-template-card
+    variables:
+      charge_limit: states['sensor.model_y_limit'].state
+    entities:
+      - ${charge_limit}
+    style:
+      top: 85%
+      left: 71%
+      font-size: 100%
+      font-weight: normal
+      color: rgb(0,0,0)
+    card:
+      type: custom:bar-card
+      entity: sensor.model_y_battery
+      severity:
+        - color: Red
+          from: 0
+          to: 10
+        - color: Orange
+          from: 11
+          to: 20
+        - color: Green
+          from: 21
+          to: 100
+      entity_row: true
+      positions:
+        icon: "off"
+        name: "off"
+        indicator: "off"
+      animation:
+        state: "on"
+        speed: 5
+      width: 250px
+      height: 25px
+      min: 0
+      max: 100
+      target: ${charge_limit}
+      tap_action: none
+      hold_action: none
+      double_tap_action: none
+      stack: vertical
+      entities:
+        - entity: sensor. 
+  - type: state-label
+    entity: sensor.model_y_range
+    style:
+      top: 95%
+      left: 73%
+      color: black
+  - type: conditional
+    conditions:
+      - entity: sensor.model_y_time_to_charged
+        state_not: "0.0"
+    elements:
+      - type: state-label
+        entity: sensor.model_y_time_to_charged
+        style:
+          top: 84%
+          left: 73%
+          color: black
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.model_y_charging
+        state: "on"
+    elements:
+      - type: icon
+        icon: mdi:ev-plug-tesla
+        tap_action: none
+        double_tap_action: none
+        hold_action: none
+        style:
+          top: 25%
+          left: 93%
+          color: lightblue
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.model_y_charging
+        state_not: "on"
+    elements:
+      - type: icon
+        icon: mdi:ev-plug-tesla
+        tap_action: none
+        double_tap_action: none
+        hold_action: none
+        style:
+          top: 25%
+          left: 93%
+          color: gray
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.model_y_locked
+        state: "off"
+    elements:
+      - type: icon
+        icon: mdi:car-door-lock
+        tap_action: none
+        double_tap_action: none
+        hold_action: none
+        style:
+          top: 45%
+          left: 63%
+          color: red
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.model_y_locked
+        state_not: "off"
+    elements:
+      - type: icon
+        icon: mdi:car-door
+        tap_action: none
+        double_tap_action: none
+        hold_action: none
+        style:
+          top: 45%
+          left: 63%
+          color: white
+  - type: conditional
+    conditions:
+      - entity: switch.model_y_mcr_sentry_mode
+        state: "on"
+    elements:
+      - type: icon
+        icon: mdi:shield-car
+        tap_action: none
+        double_tap_action: none
+        hold_action: none
+        style:
+          top: 15%
+          left: 66%
+          color: white
+  - type: conditional
+    conditions:
+      - entity: switch.model_y_mcr_sentry_mode
+        state_not: "on"
+    elements:
+      - type: icon
+        icon: mdi:shield-alert-outline
+        tap_action: none
+        double_tap_action: none
+        hold_action: none
+        style:
+          top: 15%
+          left: 66%
+          color: gray
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.model_y_frunk
+        state: "on"
+    elements:
+      - type: icon
+        icon: mdi:arrow-expand
+        tap_action: none
+        double_tap_action: none
+        hold_action: none
+        style:
+          top: 34%
+          left: 18%
+          color: white
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.model_y_trunk
+        state: "on"
+    elements:
+      - type: icon
+        icon: mdi:arrow-expand
+        tap_action: none
+        double_tap_action: none
+        hold_action: none
+        style:
+          top: 6%
+          left: 92%
+          color: black
+  - type: state-label
+    entity: sensor.model_y_outside_temp
+    style:
+      top: 15%
+      left: 15%
+      color: black
+      font-weight: bold
+  - type: state-label
+    entity: sensor.model_y_inside_temp
+    style:
+      top: 15%
+      left: 45%
+      color: white
+      font-weight: bold

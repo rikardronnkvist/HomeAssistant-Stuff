@@ -7,6 +7,9 @@ Examples and other public stuff
 ## HomeKit Notifications
 ![HomeKit Notifications](./HomeKit%20Notifications/README-images/demo.gif?raw=true)
 
+## Tesla Model Y Card
+![Tesla Model Y Card](./Tesla%20ModelY%20Card/example1.png?raw=true)
+
 ## MercedesMe Card
 ![MercedesMe Card](./MercedesMe%20Card/example1.png?raw=true)
 
